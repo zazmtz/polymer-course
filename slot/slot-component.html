@@ -13,6 +13,7 @@
       }
       .contained_elements {
         order: 1;
+        text-align: left;
       }
       .task {
         display: flex;
@@ -22,15 +23,30 @@
         display: inline-block;
       }
     </style>
+    <custom-style>
+        <style is="custom-style">
+          paper-checkbox.blue {
+            --paper-checkbox-checked-color: var(--paper-blue-500);
+            --paper-checkbox-checked-ink-color: var(--paper-blue-500);
+            --paper-checkbox-unchecked-color: var(--paper-blue-900);
+            --paper-checkbox-unchecked-ink-color: var(--paper-blue-900);
+          }
+          paper-button.green:hover {
+            background: lightseagreen;
+            color: white;
+          }
+        </style>
+    </custom-style>
+
     <h1>[[name]]</h1>
-    <paper-button on-click="addTask" raised>Add Task</paper-button>      
+    <paper-button raised class="green" on-click="addTask">Add Task</paper-button>      
     <div class="containerbox">
       <div class="contained_elements">
-          <h2>Todo:</h2>
+        <h2>Todo:</h2>
         <dom-repeat items="{{tasks}}">
             <template>
               <div class="task">
-                <paper-checkbox></paper-checkbox>
+                <paper-checkbox class="blue"></paper-checkbox>
                 <paper-input no-label-float label="Task Name" value="{{task.name}}"></paper-input>
               </div>
             </template>
