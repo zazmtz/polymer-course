@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="dom-templating">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `dom-templating`
+     * Template if, is and bind
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class DomTemplating extends Polymer.Element {
+      static get is() { return 'dom-templating'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'dom-templating'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DomTemplating.is, DomTemplating);
+  </script>
+</dom-module>
