@@ -42,12 +42,12 @@
     <paper-button raised class="green" on-click="addTask">Add Task</paper-button>      
     <div class="containerbox">
       <div class="contained_elements">
-        <h2>Todo:</h2>
+        <h2>To Do:</h2>
         <dom-repeat items="{{tasks}}">
             <template>
               <div class="task">
                 <paper-checkbox class="blue"></paper-checkbox>
-                <paper-input no-label-float label="Task Name" value="{{task.name}}"></paper-input>
+                <paper-input no-label-float label="Write a task" value="{{task.name}}"></paper-input>
               </div>
             </template>
         </dom-repeat>
@@ -56,6 +56,14 @@
   </template>
     
   <script>
+    /**
+     * `slot-component`
+     * Simple To-do list
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
     class SlotComponent extends Polymer.Element {
       static get is() { return 'slot-component'; }
       static get properties() {
@@ -71,7 +79,6 @@
       }
       addTask() {
         const newTask = {
-          completed: false,
           name: ''
         };
         this.push('tasks', newTask);

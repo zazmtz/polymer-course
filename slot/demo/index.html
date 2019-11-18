@@ -11,9 +11,7 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../slot-component.html">
-    
-    <slot></slot>
-    
+        
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
       </style>
@@ -21,10 +19,12 @@
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Basic To do - slot-component demo</h3>
+      <h3>Basic To do / slot-component demo</h3>
       <demo-snippet>
         <template>
-        <slot-component name="My To-do list"></slot-component>  
+        <slot-component name="My To-do list">
+          <slot></slot>
+        </slot-component>  
         </template>
       </demo-snippet>
     </div>
