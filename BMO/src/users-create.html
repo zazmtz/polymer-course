@@ -1,0 +1,51 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="users-create">
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+
+        padding: 16px;
+      }
+    </style>
+
+    <h1>Create user</h1>
+
+    <iron-form id="form3">
+        <form action="/foo" method="get">
+            <paper-input name="name" label="Name" value="" required></paper-input>
+            <paper-input name="github" label="Github user" value="" required></paper-input>
+            <paper-input name="e-mail" label="E-mail" value="" required></paper-input>
+            <paper-input name="phone" label="Phone" value="" required></paper-input>
+
+            <paper-button raised onclick="form3.submit()">Submit</paper-button>
+            <paper-button raised onclick="form3.reset()">Reset</paper-button>
+        </form>
+        <div class="output"></div>
+      </iron-form>
+      <script>
+        form3.addEventListener('iron-form-presubmit', function(event) {
+          this.request.params['sidekick'] = 'Robin';
+        });
+        form3.addEventListener('iron-form-submit', function(event) {
+          this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+        });
+      </script>
+      
+      
+    </form>
+  </template>
+  <script>
+    // Your new element extends the Polymer.Element base class
+    class UsersCreate extends Polymer.Element {
+      static get is() { return 'users-create'; }
+    }
+    //Now, register your new custom element so the browser can use it
+    customElements.define(UsersCreate.is, UsersCreate);
+  </script>
+</dom-module>
