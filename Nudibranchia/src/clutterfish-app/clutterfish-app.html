@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="clutterfish-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class ClutterfishApp extends Polymer.Element {
+      static get is() { return 'clutterfish-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'clutterfish-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ClutterfishApp.is, ClutterfishApp);
+  </script>
+</dom-module>

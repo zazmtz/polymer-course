@@ -1,0 +1,60 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="polymer2-lifecicle">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `polymer2-lifecicle`
+     * Polymer 2.0 life cicle
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class Polymer2Lifecicle extends Polymer.Element {
+      static get is() { return 'polymer2-lifecicle'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer2-lifecycle'
+          }
+        };
+      }
+      constructor() {
+        super();
+        //1.Crear la instancia (vive en la maquina virtual de JS)
+        console.info('create instance');
+      }
+       ready(){
+        
+       }
+
+      connectedCalback(){
+        super.connectedCalback();
+        //2,3 crea la Tag y la inyecta en el DOM. (vive en el DOM)
+        console.info('the component is in the DOM');
+      }
+      
+      attributeChangedCallback(name, ){
+        super.attributeChangedCallback();
+        //Solo cuando cambia el atributo de valor (Es nativo de HTML)
+      }
+
+      disconnectedCallback(){ 
+        super.disconnectedCallback();
+        //Cuando sale el nodo del DOM
+      }
+    }
+
+    window.customElements.define(Polymer2Lifecicle.is, Polymer2Lifecicle);
+  </script>
+</dom-module>

@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "zazmtz",
+      "phone": "552954705",
+      "email": "zaz@zazil.com",
+      "age": 36,
+      "name": "Zazil Martinez"
+    },
+    {
+      "id": 3,
+      "name": "Van",
+      "age": 40,
+      "phone": "55274905"
+    }
+  ]
+}

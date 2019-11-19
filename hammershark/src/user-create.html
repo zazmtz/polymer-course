@@ -80,7 +80,7 @@
         
         connectedCallback() {
         super.connectedCallback();
-        fetch('https://randomuser.me/api/?results=5')
+        fetch('https://randomuser.me/api/?results=20')
                 .then(response => response.json())
                 .then(payload => {
                   this.contacts = [...payload.results]

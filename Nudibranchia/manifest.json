@@ -1,0 +1,7 @@
+{
+  "name": "nudibranchia-app",
+  "short_name": "nudibranchia-app",
+  "description": "Primera app",
+  "start_url": "/",
+  "display": "standalone"
+}

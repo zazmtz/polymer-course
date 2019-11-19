@@ -1,15 +1,11 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../paper-card/paper-card.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../iron-icons/social-icons.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-icons/communication-icons.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
 
-<dom-module id="agenda-component">
-    
+
+
+<dom-module id="user-list">
     <template>
-
-      <style>
+      <style include="shared-styles">
           :host {
             display: block;
           }
@@ -24,7 +20,8 @@
       </custom-style>
 
       <template is="dom-repeat" items="[[contacts]]" as="item">
-        
+        <paper-icon-button icon="favorite">button</paper-icon-button>
+
         <paper-card alt="contact">
           <div class="card-content">
             <div>
@@ -57,17 +54,10 @@
     </template>
   
     <script>
-      /**
-     * `agenda-component`
-     * Contact list
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
-      class AgendaComponent extends Polymer.Element {
+      
+      class UserList extends Polymer.Element {
   
-        static get is() { return 'agenda-component'; }
+        static get is() { return 'user-list'; }
   
         static get properties() {
           return {
@@ -88,7 +78,7 @@
         }
       }
   
-      window.customElements.define(AgendaComponent.is, AgendaComponent);
+      window.customElements.define(UserList.is, UserList);
     </script>
   
   </dom-module>
