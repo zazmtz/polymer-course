@@ -18,10 +18,11 @@
 
     <iron-form id="form3">
         <form action="/foo" method="get">
-            <paper-input name="name" label="Name" value="" required></paper-input>
-            <paper-input name="github" label="Github user" value="" required></paper-input>
-            <paper-input name="e-mail" label="E-mail" value="" required></paper-input>
-            <paper-input name="phone" label="Phone" value="" required></paper-input>
+            <paper-input name="image" id = "img" label="Image" value="" required></paper-input>
+            <paper-input name="name" id = "name" label="Name" value="" required></paper-input>
+            <paper-input name="github" id = "gituser" label="Github user" value="" required></paper-input>
+            <paper-input name="email" id = "email" label="E-mail" value="" required></paper-input>
+            <paper-input name="phone" id = "phone" label="Phone" value="" required></paper-input>
 
             <paper-button raised onclick="form3.submit()">Submit</paper-button>
             <paper-button raised onclick="form3.reset()">Reset</paper-button>
@@ -43,7 +44,26 @@
   <script>
     // Your new element extends the Polymer.Element base class
     class UsersCreate extends Polymer.Element {
-      static get is() { return 'users-create'; }
+      static get is() { return 'users-create'; 
+      }
+      _createUser (){
+        this.dispatcEvent (new CustomEvent('user-creation', {
+          detail: this._formNewUser()
+        }));
+      }
+      _formNewUser(){
+        return {
+          image: this.$.img.value,
+          name: this.$.name.value,
+          github: this.$.gituser.value,
+          email: this.$.email.value,
+          phone: this.$.phone.value,
+        };
+      }
+      _clearForm() {
+        for (const node of Object.$.values())
+        node.value = '';
+      }
     }
     //Now, register your new custom element so the browser can use it
     customElements.define(UsersCreate.is, UsersCreate);

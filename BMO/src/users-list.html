@@ -45,25 +45,26 @@
             paper-button.green[active] {
               background-color: var(--paper-red-500);
             }
+            iron-image.header {
+              justify-content: center;
+            }
+    
           </style>
           
 
     <h1>Users list</h1>
 
-    <div class="card-actions">
-        <paper-button raised class="custom green">
-            <iron-icon icon="icons:add"></iron-icon>
-            <a name="create" href="[[rootPath]]create">Create user</a>
-        </paper-button>
+    <paper-button raised class="custom green">
+      <iron-icon icon="icons:add"></iron-icon>
+      <a style="text-decoration: none" create href="[[rootPath]]create">Create user</a>
+    </paper-button>
     </div>
 
     <template is="dom-repeat" items="[[contacts]]" as="item">
        <div class="flex-container"> 
             <paper-card alt="contact" style="margin: 4px;">
                 <div class="card-content">
-                    <div>
-                        <paper-card class="card-img" image=[[item.picture.large]]></paper-card> 
-                    </div>
+                    <paper-card class="card-img" image=[[item.picture.large]]></paper-card> 
                     <ul>
                         <li>
                             <iron-icon icon="social:person"></iron-icon>
@@ -85,7 +86,7 @@
                     <div class="card-actions" horizontal justified>
                         <paper-button raised>
                             <iron-icon icon="icons:create"></iron-icon>
-                            <a name="edit" href="[[rootPath]]edit">Edit</a>
+                            <a style="text-decoration: none" name="edit" href="[[rootPath]]edit">Edit</a>
                         </paper-button>
                     </div>
                 </div>
