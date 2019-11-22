@@ -13,109 +13,104 @@
       :host {
         display: block;
 
-        padding: 16px;
+        /*padding: 16px;
+*/
       }
+
       .flex-container {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
       }
     </style>
-    <style is="custom-style">
-            paper-button.custom {
-              --paper-button-ink-color: var(--paper-pink-a200);
-              /* These could also be individually defined for each of the
-                specific css classes, but we'll just do it once as an example */
-              --paper-button-flat-keyboard-focus: {
-                background-color: var(--paper-pink-a200);
-                color: white !important;
-              };
-              --paper-button-raised-keyboard-focus: {
-                background-color: var(--paper-pink-a200) !important;
-                color: white !important;
-              };
-            }
-            paper-button.custom:hover {
-              background-color: var(--paper-indigo-100);
-            }
-            paper-button.green {
-              background-color: var(--paper-green-500);
-              color: white;
-            }
-            paper-button.green[active] {
-              background-color: var(--paper-red-500);
-            }
-            iron-image.header {
-              justify-content: center;
-            }
-    
-          </style>
-          
 
-    <h1>Users list</h1>
-
-    <paper-button raised class="custom green">
-      <iron-icon icon="icons:add"></iron-icon>
-      <a style="text-decoration: none" create href="[[rootPath]]create">Create user</a>
-    </paper-button>
-    </div>
-
-    <template is="dom-repeat" items="[[contacts]]" as="item">
-       <div class="flex-container"> 
-            <paper-card alt="contact" style="margin: 4px;">
-                <div class="card-content">
-                    <paper-card class="card-img" image=[[item.picture.large]]></paper-card> 
-                    <ul>
-                        <li>
-                            <iron-icon icon="social:person"></iron-icon>
-                            [[item.name.first]] [[item.name.last]]
-                        </li>
-                        <li>
-                            <iron-icon icon="editor:merge-type"></iron-icon>
-                            github.com/[[item.login.username]]
-                        </li>
-                        <li>
-                            <iron-icon icon="communication:email"></iron-icon>
-                            [[item.email]]
-                        </li>
-                        <li>
-                            <iron-icon icon="communication:phone"></iron-icon>
-                            [[item.phone]]
-                        </li>
-                    </ul>
-                    <div class="card-actions" horizontal justified>
-                        <paper-button raised>
-                            <iron-icon icon="icons:create"></iron-icon>
-                            <a style="text-decoration: none" name="edit" href="[[rootPath]]edit">Edit</a>
-                        </paper-button>
-                    </div>
-                </div>
-            </paper-card>
-       </div>
+    <template is="dom-repeat" items="[[charachters]]" as="character">
+      <div class="flex-container">
+        <paper-card alt="contact" style="margin: 4px;">
+          <div class="card-content">
+            <paper-card class="card-img" image=[[character.large]]></paper-card>
+            <ul>
+              <li>
+                <iron-icon icon="social:person"></iron-icon>
+                [[item.name.first]] [[item.name.last]]
+              </li>
+              <li>
+                <iron-icon icon="editor:merge-type"></iron-icon>
+                github.com/[[item.login.username]]
+              </li>
+              <li>
+                <iron-icon icon="communication:email"></iron-icon>
+                [[item.email]]
+              </li>
+              <li>
+                <iron-icon icon="communication:phone"></iron-icon>
+                [[item.phone]]
+              </li>
+            </ul>
+            <div class="card-actions" horizontal justified>
+              <paper-button raised>
+                <iron-icon icon="icons:create"></iron-icon>
+                <a style="text-decoration: none" name="edit" href="[[rootPath]]edit">Edit</a>
+              </paper-button>
+            </div>
+          </div>
+        </paper-card>
+      </div>
     </template>
   </template>
   <script>
     // Your new element extends the Polymer.Element base class
     class UsersList extends Polymer.Element {
-      static get is() { return 'users-list'; }
+      static get is() {
+        return 'users-list';
+      }
 
       static get properties() {
-          return {
-            contacts: {
-              type: Array,
-              value:[]
+        return {
+          charachters: {
+            type: Array,
+            value: [
+
+              {
+                id: 1,
+                image: 'https://adventuretime.fandom.com/wiki/BMO?file=BMO.png',
+                name: 'BMO',
+                gender: 'Genderless',
+                Age: 1000,
+                species: 'MO (MO Series Mk. II 110V-60Hz-Core-System-Ready Kompy - Compatible model)',
+                occupation: 'Video Game Console System/Computer/VCR (current) King Of Ooo'
+              },
+              {
+                id: 2,
+                image: 'https://adventuretime.fandom.com/wiki/Marceline?file=Marceline_Stock_Night.png#Current',
+                name: 'Marceline',
+                gender: 'Female',
+                Age: 1000,
+                species: 'Vampire/Demon hybrid - Human/Demon hybrid (formerly)',
+                occupation: 'Musician'
+              },
+              {
+                id: 3,
+                image: 'https://adventuretime.fandom.com/wiki/Lady_Rainicorn?file=1ATLadyRainicornLook.png',
+                name: 'Lady Rainicorn',
+                gender: 'Female',
+                Age: 'Unknown',
+                species: 'Rainicorn',
+                occupation: "Bubblegum's Royal Pet"
               }
-            }
+            ]
           }
-        
-        connectedCallback() {
-        super.connectedCallback();
-        fetch('https://randomuser.me/api/?results=5')
-                .then(response => response.json())
-                .then(payload => {
-                  this.contacts = [...payload.results]
-                });
         }
+      }
+
+      // connectedCallback() {
+      //   super.connectedCallback();
+      //   fetch('https://randomuser.me/api/?results=50')
+      //     .then(response => response.json())
+      //     .then(payload => {
+      //       this.contacts = [...payload.results]
+      //     });
+      // }
     }
     //Now, register your new custom element so the browser can use it
     customElements.define(UsersList.is, UsersList);
