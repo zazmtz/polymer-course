@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="friday13-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `friday13-element`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class Friday13Element extends Polymer.Element {
+      static get is() { return 'friday13-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'friday13-element'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(Friday13Element.is, Friday13Element);
+  </script>
+</dom-module>
