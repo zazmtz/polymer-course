@@ -7,9 +7,12 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <h2>Hi [[some]]!</h2>
+    <dom-bind>
+      
+    </dom-bind>
   </template>
-
+  
   <script>
     /**
      * `friday13-element`
@@ -23,9 +26,9 @@
       static get is() { return 'friday13-element'; }
       static get properties() {
         return {
-          prop1: {
+          some: {
             type: String,
-            value: 'friday13-element'
+            value: 'exam'
           }
         };
       }
