@@ -1,0 +1,74 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="character-detail">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `character-detail`
+     * Detailed information for a card in a collection.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class CharacterDetail extends Polymer.Element {
+      static get is() { return 'character-detail'; }
+      static get properties() {
+        return {
+          character: {
+            type: Array,
+            value: [
+
+              {
+                id: 1,
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/8/81/BMO.png/revision/latest?cb=20190807133145',
+                name: 'BMO',
+                gender: 'Genderless',
+                age: 1000,
+                species: 'MO (MO Series Mk. II 110V-60Hz-Core-System-Ready)',
+                occupation: 'Video Game Console System/Computer/VCR '
+              },
+              {
+                id: 2,
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/e/e0/Marceline_Stock_Night.png/revision/latest/scale-to-width-down/95?cb=20190807133150',
+                name: 'Marceline',
+                gender: 'Female',
+                age: 1000,
+                species: 'Vampire/Demon hybrid - Human/Demon hybrid',
+                occupation: 'Musician'
+              },
+              {
+                id: 3,
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/a/ad/1ATLadyRainicornLook.png/revision/latest?cb=20190807133156',
+                name: 'Lady Rainicorn',
+                gender: 'Female',
+                age: 'Unknown',
+                species: 'Rainicorn',
+                occupation: "Bubblegum's Royal Pet"
+              },
+              {
+                id: 4,
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/6/68/Gunter.png/revision/latest/scale-to-width-down/120?cb=20121016040602',
+                name: 'Gunter',
+                gender: 'Male',
+                age: 'Unknown',
+                species: 'Cosmic Entity (formerly disguised as a penguin)',
+                occupation: 'Servant/Companion of the Ice King (formerly)'
+              }
+            ]
+          }
+        }
+      }
+    }
+    
+    window.customElements.define(CharacterDetail.is, CharacterDetail);
+  </script>
+</dom-module>

@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="character-detail">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `character-detail`
+     * Detailed information for a card in a collection.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class CharacterDetail extends Polymer.Element {
+      static get is() { return 'character-detail'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'character-detail'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(CharacterDetail.is, CharacterDetail);
+  </script>
+</dom-module>
