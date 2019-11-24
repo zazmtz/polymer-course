@@ -9,53 +9,52 @@
 <dom-module id="users-list">
   <!-- Defines the element's style and local DOM -->
   <template>
-    <style>
-      :host {
-        display: block;
-
-        /*padding: 16px;
-*/
-      }
-
-      .flex-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-      }
-    </style>
-
-    <template is="dom-repeat" items="[[charachters]]" as="character">
-      <div class="flex-container">
-        <paper-card alt="contact" style="margin: 4px;">
-          <div class="card-content">
-            <paper-card class="card-img" image=[[character.large]]></paper-card>
-            <ul>
-              <li>
-                <iron-icon icon="social:person"></iron-icon>
-                [[item.name.first]] [[item.name.last]]
-              </li>
-              <li>
-                <iron-icon icon="editor:merge-type"></iron-icon>
-                github.com/[[item.login.username]]
-              </li>
-              <li>
-                <iron-icon icon="communication:email"></iron-icon>
-                [[item.email]]
-              </li>
-              <li>
-                <iron-icon icon="communication:phone"></iron-icon>
-                [[item.phone]]
-              </li>
-            </ul>
-            <div class="card-actions" horizontal justified>
-              <paper-button raised>
-                <iron-icon icon="icons:create"></iron-icon>
-                <a style="text-decoration: none" name="edit" href="[[rootPath]]edit">Edit</a>
-              </paper-button>
-            </div>
+    <style include="adveturetime-styles"></style>
+    <template is="dom-repeat" items="[[character]]" as="character">
+      <paper-card image="[[character.image]]">
+        <div class="card-content"> 
+          <div class="label-container">
+            <p>
+              <span><b>Name: </b></span>
+            </p>
+            <p>
+              <span><b>Gender: </b> </span>
+            </p>
+            <p>
+              <span><b>Age:</b></span>
+            </p>
+            <p>
+              <span><b>Species: </b> </span>
+            </p>
+            <p>
+              <span><b>Occupation: </b></span>
+              </p>
+          </div> 
+          <div class="data-container" style="padding-left: 50px;">
+            <p>
+              [[character.name]]
+            </p>
+            <p>
+                [[character.gender]]
+            </p>
+            <p>
+              [[character.age]]
+            </p>
+            <p>
+              [[character.species]]
+            </p>
+            <p>
+              [[character.occupation]]
+            </p>
           </div>
-        </paper-card>
-      </div>
+        </div>
+        <div class="card-actions">
+          <paper-button raised>
+            <iron-icon icon="editor:border-color"></iron-icon>
+            <a style="text-decoration: none" name="edit" href="[[rootPath]]edit">Edit</a>
+          </paper-button>
+        </div>
+      </paper-card>
     </template>
   </template>
   <script>
@@ -67,36 +66,45 @@
 
       static get properties() {
         return {
-          charachters: {
+          character: {
             type: Array,
             value: [
 
               {
                 id: 1,
-                image: 'https://adventuretime.fandom.com/wiki/BMO?file=BMO.png',
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/8/81/BMO.png/revision/latest?cb=20190807133145',
                 name: 'BMO',
                 gender: 'Genderless',
-                Age: 1000,
-                species: 'MO (MO Series Mk. II 110V-60Hz-Core-System-Ready Kompy - Compatible model)',
-                occupation: 'Video Game Console System/Computer/VCR (current) King Of Ooo'
+                age: 1000,
+                species: 'MO (MO Series Mk. II 110V-60Hz-Core-System-Ready)',
+                occupation: 'Video Game Console System/Computer/VCR '
               },
               {
                 id: 2,
-                image: 'https://adventuretime.fandom.com/wiki/Marceline?file=Marceline_Stock_Night.png#Current',
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/e/e0/Marceline_Stock_Night.png/revision/latest/scale-to-width-down/95?cb=20190807133150',
                 name: 'Marceline',
                 gender: 'Female',
-                Age: 1000,
-                species: 'Vampire/Demon hybrid - Human/Demon hybrid (formerly)',
+                age: 1000,
+                species: 'Vampire/Demon hybrid - Human/Demon hybrid',
                 occupation: 'Musician'
               },
               {
                 id: 3,
-                image: 'https://adventuretime.fandom.com/wiki/Lady_Rainicorn?file=1ATLadyRainicornLook.png',
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/a/ad/1ATLadyRainicornLook.png/revision/latest?cb=20190807133156',
                 name: 'Lady Rainicorn',
                 gender: 'Female',
-                Age: 'Unknown',
+                age: 'Unknown',
                 species: 'Rainicorn',
                 occupation: "Bubblegum's Royal Pet"
+              },
+              {
+                id: 4,
+                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/6/68/Gunter.png/revision/latest/scale-to-width-down/120?cb=20121016040602',
+                name: 'Gunter',
+                gender: 'Male',
+                age: 'Unknown',
+                species: 'Cosmic Entity (formerly disguised as a penguin)',
+                occupation: 'Servant/Companion of the Ice King (formerly)'
               }
             ]
           }

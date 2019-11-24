@@ -21,7 +21,6 @@
 
                 display: block;
             }
-
             app-drawer-layout:not([narrow]) [drawer-toggle] {
                 display: none;
             }
@@ -51,29 +50,52 @@
                 color: black;
                 font-weight: bold;
             }
-
-            .flex-container {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-start;
+            paper-button.custom:hover {
+                background-color: var(--paper-indigo-100);
+            }
+          
+            paper-button.green {
+                background-color: #72E79D;
+                color: white;
+            }
+          
+            paper-button.green[active] {
+                background-color: var(--paper-red-500);
             }
             
-                paper-button.custom:hover {
-                  background-color: var(--paper-indigo-100);
-                }
-          
-                paper-button.green {
-                  background-color: #72E79D;
-                  color: white;
-                }
-          
-                paper-button.green[active] {
-                  background-color: var(--paper-red-500);
-                }
-          
-                iron-image.header {
-                  justify-content: center;
-                }
+            /*cards styles for character-detail*/
+
+            paper-card {
+                width: 450px; /*container-width*/
+                height: 500px;
+                overflow: hidden; /*hide bounds of image */
+                margin: 5px; /*reset margin of figure tag*/
+
+                --paper-card-content: {
+                    height: 200px;;
+                    padding: 20px;
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-content: space-between;
+                    align-items: baseline;
+                };
+                
+                --paper-card-header: {
+                    position: relative;
+                    min-height: 200px;
+                };
+
+                --paper-card-header-image: {
+                    width: 100%;
+                    max-height: 200px;
+                };
+
+                --paper-card-actions: {
+                    width: 100%;
+                    max-height: 30px;
+                };
+            }
         </style>
         
     </template>
