@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-fab/paper-fab.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/editor-icons.html">
+
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="./character-list-styles.html">
+
+<dom-module id="character-list">
+  <template>
+    <style include="character-list-styles"></style>
+    
+    <h2>This is a collection (list) of cards or items</h2>
+    
+    <div class="content">
+      <template is="dom-repeat" items="[[character]]" as="character">
+        <div class="card-container"><!-- The container was a "<a>" link to the item-detail -->
+          <paper-card image="[[character.image]]"> <!--- Here must start the item-detail --->
+            <div class="card-content">              
+                <div class="label-container">
+                  <p><span><b>Name: </b></span></p>
+                  <p><span><b>Gender: </b> </span></p>
+                  <p><span><b>Age:</b></span></p>
+                  <p><span><b>Species: </b> </span></p>
+                  <p><span><b>Occupation: </b></span></p>
+                </div> 
+                <div class="data-container" style="padding-left: 10px;">
+                  <p>[[character.name]]</p>
+                  <p>[[character.gender]]</p>
+                  <p>[[character.age]]</p>
+                  <p>[[character.species]]</p>
+                  <p>[[character.occupation]]</p>
+                </div>
+            </div>
+            <div class="card-actions">
+            <paper-icon-button icon="editor:border-color" title="heart"></paper-icon-button>
+            <span style="font-size: 10px;">Edit item</span>
+            </div>
+          </paper-card>
+        </div><!-- End of the </a> -->
+      </template>
+    </div>
+
+  </template>
+  <script src="./character-list.js"></script>
+</dom-module>
