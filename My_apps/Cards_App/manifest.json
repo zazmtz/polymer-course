@@ -1,0 +1,7 @@
+{
+  "name": "Collection",
+  "short_name": "Collection",
+  "description": "Make a cards colection",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="./cards-collection-styles.html">
+
+<dom-module id="cards-collection">
+  <template>
+    <style include="cards-collection"></style>
+    
+  </template>
+
+  <script>
+    /*
+     * A list of cards
+     * @customElement
+     * @polymer
+     */
+    class CardsCollection extends Polymer.Element {
+      static get is() { return 'cards-collection'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'cards-collection'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(CardsCollection.is, CardsCollection);
+  </script>
+</dom-module>
