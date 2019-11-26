@@ -1,0 +1,18 @@
+{
+  "name": "firstest",
+  "version": "1.0.0",
+  "description": "First unit test practice",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "jest": "^24.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\"jest\""
+  },
+  "author": "Zaz Matz",
+  "license": "MIT"
+}

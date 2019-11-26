@@ -1,13 +1,11 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
+<link rel="import" href="./character-detail-styles.html">
+
 <dom-module id="character-detail">
   <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <h2>Hello [[prop1]]!</h2>
+    <style include="character-detail"></style>
+    <h2>Este es el componente para el detalle del elemento </h2>
   </template>
 
   <script>
@@ -29,7 +27,7 @@
 
               {
                 id: 1,
-                image: 'https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/8/81/BMO.png/revision/latest?cb=20190807133145',
+                image: 'https://cdn.dribbble.com/users/135932/screenshots/2629997/bmodribbble.png',
                 name: 'BMO',
                 gender: 'Genderless',
                 age: 1000,
